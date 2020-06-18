@@ -27,7 +27,7 @@ const CreatePoint = () => {
     const [ufs, setUfs] = useState<string[]>([]);
     const [cities, setCities] = useState<string[]>([]);
 
-    const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+    const [formData, setFormData] = useState({ name: '', email: '', whatsapp: '' });
     const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0]);
     const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
     const [selectedUf, setSelectedUf] = useState('NA');
@@ -108,13 +108,13 @@ const CreatePoint = () => {
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
-        const { name, email, phone } = formData;
+        const { name, email, whatsapp } = formData;
         const [latitude, longitude] = selectedPosition;
 
         await api.post('points', {
             name,
             email,
-            phone,
+            whatsapp,
             uf: selectedUf,
             city: selectedCity,
             latitude,
@@ -161,10 +161,10 @@ const CreatePoint = () => {
                             />
                         </div>
                         <div className="field">
-                            <label htmlFor="phone">Telefone</label>
+                            <label htmlFor="whatsapp">WhatsApp</label>
                             <input
-                                id="phone"
-                                name="phone"
+                                id="whatsapp"
+                                name="whatsapp"
                                 type="text"
                                 onChange={handleInputChange}
                             />
