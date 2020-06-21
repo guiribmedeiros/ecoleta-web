@@ -3,6 +3,7 @@ import { LeafletMouseEvent } from 'leaflet'
 import { Link, useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 import { Map, TileLayer, Marker } from 'react-leaflet';
+import Dropzone from './components/Dropzone';
 import logo from '../../assets/logo.svg';
 import api from '../../services/api';
 import ibge from '../../services/ibge';
@@ -33,6 +34,7 @@ const CreatePoint = () => {
     const [selectedUf, setSelectedUf] = useState('NA');
     const [selectedCity, setSelectedCity] = useState('NA');
     const [selectedItems, setSelectedItems] = useState<number[]>([]);
+    const [selectedFile, setSelectedFile] = useState<File>();
 
     const history = useHistory();
 
@@ -111,16 +113,21 @@ const CreatePoint = () => {
         const { name, email, whatsapp } = formData;
         const [latitude, longitude] = selectedPosition;
 
-        await api.post('points', {
-            name,
-            email,
-            whatsapp,
-            uf: selectedUf,
-            city: selectedCity,
-            latitude,
-            longitude,
-            items: selectedItems,
-        });
+        const data = new FormData();
+        data.append('name', name);
+        data.append('email', email);
+        data.append('whatsapp', whatsapp);
+        data.append('uf', selectedUf);
+        data.append('city', selectedCity);
+        data.append('latitude', String(latitude));
+        data.append('longitude', String(longitude));
+        data.append('items', selectedItems.join(','));
+
+        if (selectedFile) {
+            data.append('image', selectedFile);
+        }
+
+        await api.post('points', data);
 
         alert('Cadastro concluído!');
         history.push('/');
@@ -137,6 +144,7 @@ const CreatePoint = () => {
             </header>
             <form onSubmit={handleSubmit}>
                 <h1>Cadastro do<br />ponto de coleta</h1>
+                <Dropzone onDrop={setSelectedFile} />
                 <fieldset>
                     <legend>
                         <h2>Dados da entidade</h2>
