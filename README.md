@@ -13,8 +13,8 @@ Ecoleta is a marketplace platform that helps people find collection points for r
 - Booster [Ecoleta Mobile](https://github.com/guiribmedeiros/ecoleta-mobile).
 - Starter and Booster designs are available at [Figma](https://www.figma.com/file/RdlEdkUng704Q0OyIHjSGi/Ecoleta).
 
-Ecoleta Web is an open source web app. It is written in [TypeScript](http://www.typescriptlang.org) and
-uses [React](https://facebook.github.io/react/).
+Ecoleta Web is an open-sourced web app. It is written in [TypeScript](http://www.typescriptlang.org) and
+uses [React](https://reactjs.org/).
 
 ## Getting Started
 
@@ -35,4 +35,4 @@ npm start
 ```
 
 That’s it! :rocket:  
-If you have questions about Ecoleta, you can ask me on [GitHub Issues](https://github.com/guiribmedeiros/ecoleta-web/issues).
+If you have questions about Ecoleta Web, you can ask me on [GitHub Issues](https://github.com/guiribmedeiros/ecoleta-web/issues).
