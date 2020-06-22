@@ -28,7 +28,7 @@ Then configure your development environment from the `.env.example` file and ins
 npm install
 ```
 
-Finally, after installing the dependencies, the `start` script starts your Node.js "development server" on port 3000.
+Finally, after installing the dependencies, the `start` script starts your React "development server" on port 3000.
 
 ```
 npm start
