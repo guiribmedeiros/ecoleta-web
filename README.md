@@ -35,4 +35,4 @@ npm start
 ```
 
 That’s it! :rocket:  
-If you have questions about Ecoleta Web, you can ask me on [GitHub Issues](https://github.com/guiribmedeiros/ecoleta-web/issues).
+If you have questions about Ecoleta Web, you can ask on [GitHub Issues](https://github.com/guiribmedeiros/ecoleta-web/issues).
