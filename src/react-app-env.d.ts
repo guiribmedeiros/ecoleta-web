@@ -2,8 +2,8 @@
 
 declare namespace NodeJS {
     interface ProcessEnv {
-        REACT_APP_MAP_HOST: string,
-        REACT_APP_MAP_ATTRIBUTION: string,
+        REACT_APP_API_PROTOCOL: stirng,
         REACT_APP_API_HOST: stirng,
+        REACT_APP_API_PORT: number,
     }
 }
